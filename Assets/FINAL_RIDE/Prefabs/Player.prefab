@@ -26,8 +26,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2527900358210973971}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -81,9 +81,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 5
   _armorType: 1
-  _gunRotationSpeed: 150
   _projectile: {fileID: 1048493623866959441, guid: 5aeaeaf4aa5ed7841920ddd83f3710ca, type: 3}
-  _attackType: 1
+  _weapon: {fileID: 11400000, guid: bf31f170ae5e6f548a2c5322105b1bd5, type: 2}
 --- !u!61 &4593132038165435630
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -181,14 +180,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5693940965502352183}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.1446274, z: -0, w: 0.98948616}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 0}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 9076456788947822135}
   m_Father: {fileID: 8410126619135792915}
-  m_LocalEulerAnglesHint: {x: 0, y: 16.631, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1646657261279337889
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -313,7 +312,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -3
   m_Sprite: {fileID: -612392901, guid: 43e41c5f3f1c5c040867dd341782e1af, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -352,7 +351,7 @@ Transform:
   m_GameObject: {fileID: 9086566239859591344}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.35, z: 0}
+  m_LocalPosition: {x: 0.03, y: -0.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:

@@ -99,9 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6f2adb192da75429be8d8749139319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 1
+  _speed: 0.05
   _armorType: 2
-  _attackType: 3
+  _weapon: {fileID: 11400000, guid: 0b8b2c5bebd20b44f92bfa11a3480811, type: 2}
 --- !u!61 &6770860546003452675
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -22,4 +22,20 @@ public class Bullet : Projectile
 
         base.Awake();
     }
+
+
+    private new void Start()
+    {
+        base.Start();
+
+        float maxValue = Speed / 100f;
+
+        Vector3 someVector = new Vector3(UnityEngine.Random.Range(-maxValue, maxValue), UnityEngine.Random.Range(0, maxValue), 0);
+        gameObject.transform.localPosition = GameObject.FindWithTag("ShootPosition").transform.position + someVector;
+    }
+
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
 }

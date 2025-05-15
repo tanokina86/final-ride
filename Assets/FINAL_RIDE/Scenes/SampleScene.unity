@@ -323,10 +323,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5017811362887047375, guid: 70f65a3497a5afd42a58893028ec6149, type: 3}
-      propertyPath: _speed
-      value: 0.05
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -380,6 +376,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5701598956007100141, guid: e321e215b5b80d94da42d75f91e4186b, type: 3}
+      propertyPath: _weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 524811431dde0064ba4827273ebbda33, type: 2}
     - target: {fileID: 5833784387086972047, guid: e321e215b5b80d94da42d75f91e4186b, type: 3}
       propertyPath: m_Name
       value: Spectr
@@ -400,10 +400,6 @@ PrefabInstance:
     - target: {fileID: 3010128640076917298, guid: 5e4041a581e38564c831a4e3f91351bb, type: 3}
       propertyPath: m_Name
       value: Crawler
-      objectReference: {fileID: 0}
-    - target: {fileID: 3563333406694219080, guid: 5e4041a581e38564c831a4e3f91351bb, type: 3}
-      propertyPath: _speed
-      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 4438742750105622797, guid: 5e4041a581e38564c831a4e3f91351bb, type: 3}
       propertyPath: m_LocalPosition.x

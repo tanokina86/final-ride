@@ -11,6 +11,8 @@ public abstract class Projectile : MonoBehaviour, IMovable
     [SerializeField]
     private float _moveSpeed = 0f;
 
+    protected float Speed => _moveSpeed;
+
     public virtual void Move()
     {
         _rigidBody.transform.Translate(Vector3.up * _moveSpeed * Time.fixedDeltaTime);
@@ -37,6 +39,6 @@ public abstract class Projectile : MonoBehaviour, IMovable
 
     protected void Awake()
     {
-        Debug.Log(gameObject.name.ToUpper() + " Instatiated");
+        Debug.Log(gameObject.name.ToUpper() + $" Instatiated {transform.localPosition}");
     }
 }

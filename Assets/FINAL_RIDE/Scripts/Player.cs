@@ -1,3 +1,4 @@
+using Assets.Scripts;
 using Assets.Scripts.Enums;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,31 +9,25 @@ public class Player : Vehicle, IWeaponed
     Rigidbody2D _playerRigidbody = null;
 
     [SerializeField]
-    private float _gunRotationSpeed = 0f;
-
-    [SerializeField]
     GameObject _projectile = null;
 
     public bool HasAdditionalWeapon { get; } = true;
 
-    private Rigidbody2D _gun = null;
-
-    //TODO: Make additional class Weapon for IWeaponed entities
     [SerializeField]
-    private AttackType _attackType = AttackType.Normal;
-    public AttackType AttackType => _attackType;
+    private Weapon _weapon;
 
-    public Dictionary<AttackType, KeyValuePair<float, float>> Weapon => throw new System.NotImplementedException();
+    public Weapon Weapon { get; set ; }
 
     private void Start()
     {
         _playerRigidbody = GetComponent<Rigidbody2D>();
 
-        _gun = GameObject.FindWithTag("Gun").GetComponent<Rigidbody2D>();
+        Weapon = _weapon is null ? (Weapon)ScriptableObject.CreateInstance(typeof(Weapon)) : _weapon;
     }
 
     private void Update()
     {
+        
     }
 
     private void FixedUpdate()
@@ -41,7 +36,15 @@ public class Player : Vehicle, IWeaponed
 
         RotateGun();
 
-        if (Input.GetKey(KeyCode.Space)) Shoot(2f);
+
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            StartCoroutine(CreateProjectile());
+        }
+        else if (Input.GetKeyUp(KeyCode.Space)) StopAllCoroutines();
+        //Shoot(1f);
+
     }
 
     public override void Move()
@@ -49,21 +52,47 @@ public class Player : Vehicle, IWeaponed
         Vector2 axisIncrement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized * MovementSpeed * Time.fixedDeltaTime;
 
         _playerRigidbody.MovePosition(_playerRigidbody.position + axisIncrement);
+
+        _weapon.Body.position = _playerRigidbody.position;
     }
 
     public void RotateGun()
     {
         int direction = Input.GetKey(KeyCode.Mouse0) ? 1 : Input.GetKey(KeyCode.Mouse1) ? -1 : 0;
 
-        float zAxisValue = direction * _gunRotationSpeed * Time.fixedDeltaTime;
-
-        _gun.transform.rotation = Quaternion.Euler(0, 0, _gun.rotation += zAxisValue);
+        Weapon.Rotate(direction);
     }
 
-    public void Shoot(float baseDamage)
+    public void Shoot(float speed)
     {
-        Instantiate(_projectile, _projectile.transform.position, _gun.transform.rotation);
+        
+
+
+
+        //CreateProjectile(speed);
+    }
+
+    private IEnumerator CreateProjectile(float speed = 1f)
+    {
+        yield return new WaitForSeconds(speed);
+
+        float directionAngle = Random.Range(-.015f, .015f);
+
+        Quaternion projectileRotation = Weapon.Body.transform.rotation;
+
+        //Vector3 projectilePosition = _projectile.transform.localPosition;
+
+        Vector3 projectilePosition = Weapon.ShootPosition.position;
+
+        //Debug.Log("BEFORE: " + projectilePosition);
+
+        projectileRotation.z = projectileRotation.z + directionAngle;
+
+        //Debug.Log("AFTER: " + projectilePosition);
+
+        Instantiate(_projectile, projectilePosition, projectileRotation);
 
         _projectile.gameObject.SetActive(true);
+        
     }
 }

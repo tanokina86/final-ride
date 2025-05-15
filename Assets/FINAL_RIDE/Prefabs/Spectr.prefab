@@ -48,8 +48,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 0.05
-  _armorType: 0
-  _attackType: 1
+  _armorType: 1
+  _weapon: {fileID: 11400000, guid: 524811431dde0064ba4827273ebbda33, type: 2}
 --- !u!212 &1149034078601685965
 SpriteRenderer:
   m_ObjectHideFlags: 0

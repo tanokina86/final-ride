@@ -1,3 +1,4 @@
+using Assets.Scripts;
 using Assets.Scripts.Enums;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,20 +17,18 @@ public class EnemyCar : Vehicle, IEnemy
 
     private GameObject _player = null;
 
-    [SerializeField]
-    private AttackType _attackType = AttackType.Normal;
-
     public string Name { get => string.IsNullOrEmpty(_name) ? name : _name; set => _name = value; }
 
     public string Discription => _description;
 
     public IEnumerable<Dictionary<string, string>> Abilities { get; set; }
 
-    public AttackType AttackType => _attackType;
+    [SerializeField]
+    private Weapon _weapon;
 
-    public Dictionary<AttackType, KeyValuePair<float, float>> Weapon => throw new System.NotImplementedException();
+    public Weapon Weapon { get; set; }
 
-    bool IWeaponed.HasAdditionalWeapon => throw new System.NotImplementedException();
+    public bool HasAdditionalWeapon => false;
 
     public EnemyCar()
     {
@@ -41,6 +40,8 @@ public class EnemyCar : Vehicle, IEnemy
         Vector2 playerPosition = _player.transform.position;
 
         _rigidbody.position += (playerPosition - _rigidbody.position) * MovementSpeed * Time.fixedDeltaTime;
+
+        _weapon.Body.position = _rigidbody.position;
     }
 
     public void Describe(string text)
@@ -64,6 +65,10 @@ public class EnemyCar : Vehicle, IEnemy
         _rigidbody = GetComponent<Rigidbody2D>();
 
         _player = FindObjectOfType<Player>().gameObject;
+
+        Weapon = _weapon is null ? (Weapon)ScriptableObject.CreateInstance(typeof(Weapon)) : _weapon;
+
+        Weapon.Body.transform.position = _rigidbody.position;
     }
 
     private void FixedUpdate()

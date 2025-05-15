@@ -1,13 +1,12 @@
-﻿using Assets.Scripts.Enums;
+﻿using Assets.Scripts;
+using Assets.Scripts.Enums;
 using System.Collections.Generic;
 
 public interface IWeaponed
 {
-    public AttackType AttackType { get; }
+    const Weapon weapon = null;
 
-    public Dictionary<AttackType, KeyValuePair<float, float>> Weapon { get; }
+    public Weapon Weapon { get; set; }
 
     public bool HasAdditionalWeapon { get; }
-
-    public abstract void Shoot(float baseDamage);
 }
