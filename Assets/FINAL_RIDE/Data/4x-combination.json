@@ -1,0 +1,914 @@
+[
+  {
+    "Key": "nrm-nrm-nrm",
+    "Value": [
+      "Normal",
+      "Normal",
+      "Normal"
+    ]
+  },
+  {
+    "Key": "nrm-nrm-spl",
+    "Value": [
+      "Normal",
+      "Normal",
+      "Splitted"
+    ]
+  },
+  {
+    "Key": "nrm-nrm-shk",
+    "Value": [
+      "Normal",
+      "Normal",
+      "Shoker"
+    ]
+  },
+  {
+    "Key": "nrm-nrm-cnn",
+    "Value": [
+      "Normal",
+      "Normal",
+      "Canon"
+    ]
+  },
+  {
+    "Key": "nrm-nrm-ign",
+    "Value": [
+      "Normal",
+      "Normal",
+      "Ignito"
+    ]
+  },
+  {
+    "Key": "nrm-spl-nrm",
+    "Value": [
+      "Normal",
+      "Splitted",
+      "Normal"
+    ]
+  },
+  {
+    "Key": "nrm-spl-spl",
+    "Value": [
+      "Normal",
+      "Splitted",
+      "Splitted"
+    ]
+  },
+  {
+    "Key": "nrm-spl-cnn",
+    "Value": [
+      "Normal",
+      "Splitted",
+      "Canon"
+    ]
+  },
+  {
+    "Key": "nrm-spl-ign",
+    "Value": [
+      "Normal",
+      "Splitted",
+      "Ignito"
+    ]
+  },
+  {
+    "Key": "nrm-shk-nrm",
+    "Value": [
+      "Normal",
+      "Shoker",
+      "Normal"
+    ]
+  },
+  {
+    "Key": "nrm-shk-spl",
+    "Value": [
+      "Normal",
+      "Shoker",
+      "Splitted"
+    ]
+  },
+  {
+    "Key": "nrm-shk-shk",
+    "Value": [
+      "Normal",
+      "Shoker",
+      "Shoker"
+    ]
+  },
+  {
+    "Key": "nrm-shk-cnn",
+    "Value": [
+      "Normal",
+      "Shoker",
+      "Canon"
+    ]
+  },
+  {
+    "Key": "nrm-shk-ign",
+    "Value": [
+      "Normal",
+      "Shoker",
+      "Ignito"
+    ]
+  },
+  {
+    "Key": "nrm-cnn-spl",
+    "Value": [
+      "Normal",
+      "Canon",
+      "Splitted"
+    ]
+  },
+  {
+    "Key": "nrm-cnn-shk",
+    "Value": [
+      "Normal",
+      "Canon",
+      "Shoker"
+    ]
+  },
+  {
+    "Key": "nrm-cnn-cnn",
+    "Value": [
+      "Normal",
+      "Canon",
+      "Canon"
+    ]
+  },
+  {
+    "Key": "nrm-cnn-ign",
+    "Value": [
+      "Normal",
+      "Canon",
+      "Ignito"
+    ]
+  },
+  {
+    "Key": "nrm-ign-spl",
+    "Value": [
+      "Normal",
+      "Ignito",
+      "Splitted"
+    ]
+  },
+  {
+    "Key": "nrm-ign-cnn",
+    "Value": [
+      "Normal",
+      "Ignito",
+      "Canon"
+    ]
+  },
+  {
+    "Key": "nrm-ign-ign",
+    "Value": [
+      "Normal",
+      "Ignito",
+      "Ignito"
+    ]
+  },
+  {
+    "Key": "spl-nrm-nrm",
+    "Value": [
+      "Splitted",
+      "Normal",
+      "Normal"
+    ]
+  },
+  {
+    "Key": "spl-nrm-spl",
+    "Value": [
+      "Splitted",
+      "Normal",
+      "Splitted"
+    ]
+  },
+  {
+    "Key": "spl-nrm-shk",
+    "Value": [
+      "Splitted",
+      "Normal",
+      "Shoker"
+    ]
+  },
+  {
+    "Key": "spl-nrm-cnn",
+    "Value": [
+      "Splitted",
+      "Normal",
+      "Canon"
+    ]
+  },
+  {
+    "Key": "spl-nrm-ign",
+    "Value": [
+      "Splitted",
+      "Normal",
+      "Ignito"
+    ]
+  },
+  {
+    "Key": "spl-spl-nrm",
+    "Value": [
+      "Splitted",
+      "Splitted",
+      "Normal"
+    ]
+  },
+  {
+    "Key": "spl-spl-spl",
+    "Value": [
+      "Splitted",
+      "Splitted",
+      "Splitted"
+    ]
+  },
+  {
+    "Key": "spl-spl-shk",
+    "Value": [
+      "Splitted",
+      "Splitted",
+      "Shoker"
+    ]
+  },
+  {
+    "Key": "spl-spl-cnn",
+    "Value": [
+      "Splitted",
+      "Splitted",
+      "Canon"
+    ]
+  },
+  {
+    "Key": "spl-spl-ign",
+    "Value": [
+      "Splitted",
+      "Splitted",
+      "Ignito"
+    ]
+  },
+  {
+    "Key": "spl-shk-nrm",
+    "Value": [
+      "Splitted",
+      "Shoker",
+      "Normal"
+    ]
+  },
+  {
+    "Key": "spl-shk-spl",
+    "Value": [
+      "Splitted",
+      "Shoker",
+      "Splitted"
+    ]
+  },
+  {
+    "Key": "spl-shk-shk",
+    "Value": [
+      "Splitted",
+      "Shoker",
+      "Shoker"
+    ]
+  },
+  {
+    "Key": "spl-shk-cnn",
+    "Value": [
+      "Splitted",
+      "Shoker",
+      "Canon"
+    ]
+  },
+  {
+    "Key": "spl-shk-ign",
+    "Value": [
+      "Splitted",
+      "Shoker",
+      "Ignito"
+    ]
+  },
+  {
+    "Key": "spl-cnn-nrm",
+    "Value": [
+      "Splitted",
+      "Canon",
+      "Normal"
+    ]
+  },
+  {
+    "Key": "spl-cnn-spl",
+    "Value": [
+      "Splitted",
+      "Canon",
+      "Splitted"
+    ]
+  },
+  {
+    "Key": "spl-cnn-shk",
+    "Value": [
+      "Splitted",
+      "Canon",
+      "Shoker"
+    ]
+  },
+  {
+    "Key": "spl-cnn-cnn",
+    "Value": [
+      "Splitted",
+      "Canon",
+      "Canon"
+    ]
+  },
+  {
+    "Key": "spl-cnn-ign",
+    "Value": [
+      "Splitted",
+      "Canon",
+      "Ignito"
+    ]
+  },
+  {
+    "Key": "spl-ign-nrm",
+    "Value": [
+      "Splitted",
+      "Ignito",
+      "Normal"
+    ]
+  },
+  {
+    "Key": "spl-ign-spl",
+    "Value": [
+      "Splitted",
+      "Ignito",
+      "Splitted"
+    ]
+  },
+  {
+    "Key": "spl-ign-shk",
+    "Value": [
+      "Splitted",
+      "Ignito",
+      "Shoker"
+    ]
+  },
+  {
+    "Key": "spl-ign-cnn",
+    "Value": [
+      "Splitted",
+      "Ignito",
+      "Canon"
+    ]
+  },
+  {
+    "Key": "spl-ign-ign",
+    "Value": [
+      "Splitted",
+      "Ignito",
+      "Ignito"
+    ]
+  },
+  {
+    "Key": "shk-nrm-nrm",
+    "Value": [
+      "Shoker",
+      "Normal",
+      "Normal"
+    ]
+  },
+  {
+    "Key": "shk-nrm-spl",
+    "Value": [
+      "Shoker",
+      "Normal",
+      "Splitted"
+    ]
+  },
+  {
+    "Key": "shk-nrm-shk",
+    "Value": [
+      "Shoker",
+      "Normal",
+      "Shoker"
+    ]
+  },
+  {
+    "Key": "shk-nrm-cnn",
+    "Value": [
+      "Shoker",
+      "Normal",
+      "Canon"
+    ]
+  },
+  {
+    "Key": "shk-nrm-ign",
+    "Value": [
+      "Shoker",
+      "Normal",
+      "Ignito"
+    ]
+  },
+  {
+    "Key": "shk-spl-nrm",
+    "Value": [
+      "Shoker",
+      "Splitted",
+      "Normal"
+    ]
+  },
+  {
+    "Key": "shk-spl-spl",
+    "Value": [
+      "Shoker",
+      "Splitted",
+      "Splitted"
+    ]
+  },
+  {
+    "Key": "shk-spl-shk",
+    "Value": [
+      "Shoker",
+      "Splitted",
+      "Shoker"
+    ]
+  },
+  {
+    "Key": "shk-spl-cnn",
+    "Value": [
+      "Shoker",
+      "Splitted",
+      "Canon"
+    ]
+  },
+  {
+    "Key": "shk-spl-ign",
+    "Value": [
+      "Shoker",
+      "Splitted",
+      "Ignito"
+    ]
+  },
+  {
+    "Key": "shk-shk-nrm",
+    "Value": [
+      "Shoker",
+      "Shoker",
+      "Normal"
+    ]
+  },
+  {
+    "Key": "shk-shk-spl",
+    "Value": [
+      "Shoker",
+      "Shoker",
+      "Splitted"
+    ]
+  },
+  {
+    "Key": "shk-shk-shk",
+    "Value": [
+      "Shoker",
+      "Shoker",
+      "Shoker"
+    ]
+  },
+  {
+    "Key": "shk-shk-cnn",
+    "Value": [
+      "Shoker",
+      "Shoker",
+      "Canon"
+    ]
+  },
+  {
+    "Key": "shk-shk-ign",
+    "Value": [
+      "Shoker",
+      "Shoker",
+      "Ignito"
+    ]
+  },
+  {
+    "Key": "shk-cnn-nrm",
+    "Value": [
+      "Shoker",
+      "Canon",
+      "Normal"
+    ]
+  },
+  {
+    "Key": "shk-cnn-spl",
+    "Value": [
+      "Shoker",
+      "Canon",
+      "Splitted"
+    ]
+  },
+  {
+    "Key": "shk-cnn-shk",
+    "Value": [
+      "Shoker",
+      "Canon",
+      "Shoker"
+    ]
+  },
+  {
+    "Key": "shk-cnn-cnn",
+    "Value": [
+      "Shoker",
+      "Canon",
+      "Canon"
+    ]
+  },
+  {
+    "Key": "shk-cnn-ign",
+    "Value": [
+      "Shoker",
+      "Canon",
+      "Ignito"
+    ]
+  },
+  {
+    "Key": "shk-ign-nrm",
+    "Value": [
+      "Shoker",
+      "Ignito",
+      "Normal"
+    ]
+  },
+  {
+    "Key": "shk-ign-spl",
+    "Value": [
+      "Shoker",
+      "Ignito",
+      "Splitted"
+    ]
+  },
+  {
+    "Key": "shk-ign-shk",
+    "Value": [
+      "Shoker",
+      "Ignito",
+      "Shoker"
+    ]
+  },
+  {
+    "Key": "shk-ign-cnn",
+    "Value": [
+      "Shoker",
+      "Ignito",
+      "Canon"
+    ]
+  },
+  {
+    "Key": "shk-ign-ign",
+    "Value": [
+      "Shoker",
+      "Ignito",
+      "Ignito"
+    ]
+  },
+  {
+    "Key": "cnn-nrm-nrm",
+    "Value": [
+      "Canon",
+      "Normal",
+      "Normal"
+    ]
+  },
+  {
+    "Key": "cnn-nrm-spl",
+    "Value": [
+      "Canon",
+      "Normal",
+      "Splitted"
+    ]
+  },
+  {
+    "Key": "cnn-nrm-shk",
+    "Value": [
+      "Canon",
+      "Normal",
+      "Shoker"
+    ]
+  },
+  {
+    "Key": "cnn-nrm-cnn",
+    "Value": [
+      "Canon",
+      "Normal",
+      "Canon"
+    ]
+  },
+  {
+    "Key": "cnn-nrm-ign",
+    "Value": [
+      "Canon",
+      "Normal",
+      "Ignito"
+    ]
+  },
+  {
+    "Key": "cnn-spl-nrm",
+    "Value": [
+      "Canon",
+      "Splitted",
+      "Normal"
+    ]
+  },
+  {
+    "Key": "cnn-spl-spl",
+    "Value": [
+      "Canon",
+      "Splitted",
+      "Splitted"
+    ]
+  },
+  {
+    "Key": "cnn-spl-shk",
+    "Value": [
+      "Canon",
+      "Splitted",
+      "Shoker"
+    ]
+  },
+  {
+    "Key": "cnn-spl-cnn",
+    "Value": [
+      "Canon",
+      "Splitted",
+      "Canon"
+    ]
+  },
+  {
+    "Key": "cnn-spl-ign",
+    "Value": [
+      "Canon",
+      "Splitted",
+      "Ignito"
+    ]
+  },
+  {
+    "Key": "cnn-shk-nrm",
+    "Value": [
+      "Canon",
+      "Shoker",
+      "Normal"
+    ]
+  },
+  {
+    "Key": "cnn-shk-spl",
+    "Value": [
+      "Canon",
+      "Shoker",
+      "Splitted"
+    ]
+  },
+  {
+    "Key": "cnn-shk-shk",
+    "Value": [
+      "Canon",
+      "Shoker",
+      "Shoker"
+    ]
+  },
+  {
+    "Key": "cnn-shk-cnn",
+    "Value": [
+      "Canon",
+      "Shoker",
+      "Canon"
+    ]
+  },
+  {
+    "Key": "cnn-shk-ign",
+    "Value": [
+      "Canon",
+      "Shoker",
+      "Ignito"
+    ]
+  },
+  {
+    "Key": "cnn-cnn-nrm",
+    "Value": [
+      "Canon",
+      "Canon",
+      "Normal"
+    ]
+  },
+  {
+    "Key": "cnn-cnn-spl",
+    "Value": [
+      "Canon",
+      "Canon",
+      "Splitted"
+    ]
+  },
+  {
+    "Key": "cnn-cnn-shk",
+    "Value": [
+      "Canon",
+      "Canon",
+      "Shoker"
+    ]
+  },
+  {
+    "Key": "cnn-cnn-cnn",
+    "Value": [
+      "Canon",
+      "Canon",
+      "Canon"
+    ]
+  },
+  {
+    "Key": "cnn-cnn-ign",
+    "Value": [
+      "Canon",
+      "Canon",
+      "Ignito"
+    ]
+  },
+  {
+    "Key": "cnn-ign-nrm",
+    "Value": [
+      "Canon",
+      "Ignito",
+      "Normal"
+    ]
+  },
+  {
+    "Key": "cnn-ign-spl",
+    "Value": [
+      "Canon",
+      "Ignito",
+      "Splitted"
+    ]
+  },
+  {
+    "Key": "cnn-ign-shk",
+    "Value": [
+      "Canon",
+      "Ignito",
+      "Shoker"
+    ]
+  },
+  {
+    "Key": "cnn-ign-cnn",
+    "Value": [
+      "Canon",
+      "Ignito",
+      "Canon"
+    ]
+  },
+  {
+    "Key": "ign-nrm-nrm",
+    "Value": [
+      "Ignito",
+      "Normal",
+      "Normal"
+    ]
+  },
+  {
+    "Key": "ign-nrm-spl",
+    "Value": [
+      "Ignito",
+      "Normal",
+      "Splitted"
+    ]
+  },
+  {
+    "Key": "ign-nrm-shk",
+    "Value": [
+      "Ignito",
+      "Normal",
+      "Shoker"
+    ]
+  },
+  {
+    "Key": "ign-nrm-cnn",
+    "Value": [
+      "Ignito",
+      "Normal",
+      "Canon"
+    ]
+  },
+  {
+    "Key": "ign-spl-nrm",
+    "Value": [
+      "Ignito",
+      "Splitted",
+      "Normal"
+    ]
+  },
+  {
+    "Key": "ign-spl-spl",
+    "Value": [
+      "Ignito",
+      "Splitted",
+      "Splitted"
+    ]
+  },
+  {
+    "Key": "ign-spl-ign",
+    "Value": [
+      "Ignito",
+      "Splitted",
+      "Ignito"
+    ]
+  },
+  {
+    "Key": "ign-shk-nrm",
+    "Value": [
+      "Ignito",
+      "Shoker",
+      "Normal"
+    ]
+  },
+  {
+    "Key": "ign-shk-spl",
+    "Value": [
+      "Ignito",
+      "Shoker",
+      "Splitted"
+    ]
+  },
+  {
+    "Key": "ign-shk-shk",
+    "Value": [
+      "Ignito",
+      "Shoker",
+      "Shoker"
+    ]
+  },
+  {
+    "Key": "ign-cnn-nrm",
+    "Value": [
+      "Ignito",
+      "Canon",
+      "Normal"
+    ]
+  },
+  {
+    "Key": "ign-cnn-spl",
+    "Value": [
+      "Ignito",
+      "Canon",
+      "Splitted"
+    ]
+  },
+  {
+    "Key": "ign-cnn-shk",
+    "Value": [
+      "Ignito",
+      "Canon",
+      "Shoker"
+    ]
+  },
+  {
+    "Key": "ign-cnn-cnn",
+    "Value": [
+      "Ignito",
+      "Canon",
+      "Canon"
+    ]
+  },
+  {
+    "Key": "ign-ign-nrm",
+    "Value": [
+      "Ignito",
+      "Ignito",
+      "Normal"
+    ]
+  },
+  {
+    "Key": "ign-ign-spl",
+    "Value": [
+      "Ignito",
+      "Ignito",
+      "Splitted"
+    ]
+  },
+  {
+    "Key": "ign-ign-shk",
+    "Value": [
+      "Ignito",
+      "Ignito",
+      "Shoker"
+    ]
+  },
+  {
+    "Key": "ign-ign-cnn",
+    "Value": [
+      "Ignito",
+      "Ignito",
+      "Canon"
+    ]
+  },
+  {
+    "Key": "ign-ign-ign",
+    "Value": [
+      "Ignito",
+      "Ignito",
+      "Ignito"
+    ]
+  }
+]

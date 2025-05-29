@@ -16,7 +16,7 @@ public abstract class Vehicle : MonoBehaviour, IVehicle
 
 
     private KeyValuePair<ArmorType, float> _armor = new KeyValuePair<ArmorType, float>(ArmorType.Lite, 100f);
-    public bool IsFlying { get; } = false;
+    public bool IsFlying { get; protected set; } = false;
 
     public float MovementSpeed => _speed;
 

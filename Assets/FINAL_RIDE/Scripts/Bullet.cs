@@ -5,13 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class Bullet : Projectile
+public sealed class Bullet : Projectile
 {
     private Sprite _sprite = null;
 
     private new void Awake()
     {
         name = String.IsNullOrEmpty(name) ? "Bullet" : name;
+
+        _attackType = Assets.Scripts.Enums.AttackType.Normal;
+
+        _baseDamage = 1f;
+
+        _lifeTime = 10f;
 
         if (!gameObject.GetComponent<SpriteRenderer>().enabled)
         {
@@ -20,7 +26,7 @@ public class Bullet : Projectile
             _sprite = (Sprite)Resources.Load("Assets/FINAL_RIDE/Sprites/Projectiles/bullet.png", typeof(Sprite));
         }
 
-        base.Awake();
+        //base.Awake(); //Shows message info in console
     }
 
 
@@ -28,10 +34,13 @@ public class Bullet : Projectile
     {
         base.Start();
 
-        float maxValue = Speed / 100f;
+        float offsetMaxValue = Speed / 100f;
 
-        Vector3 someVector = new Vector3(UnityEngine.Random.Range(-maxValue, maxValue), UnityEngine.Random.Range(0, maxValue), 0);
-        gameObject.transform.localPosition = GameObject.FindWithTag("ShootPosition").transform.position + someVector;
+        Vector3 someVector = new Vector3(UnityEngine.Random.Range(-offsetMaxValue, offsetMaxValue), UnityEngine.Random.Range(0, offsetMaxValue), 0);
+        
+        Transform someTransform = GameObject.Find("PlayerWeapon").GetComponentInChildren(typeof(Transform), name == "ShootPosition") as Transform;
+
+        gameObject.transform.localPosition = someTransform.position + someVector;
     }
 
     private void OnBecameInvisible()

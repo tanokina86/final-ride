@@ -1,0 +1,62 @@
+﻿using NUnit.Framework;
+using Unity.Collections;
+using Unity.Collections.LowLevel.Unsafe;
+using Unity.Collections.Tests;
+
+[TestFixture]
+internal class UTF8ArrayUnsafeUtilityTests : CollectionsTestCommonBase
+{
+    [TestCase("The Quick Brown Fox Jumps Over The Lazy Dog")]
+    [TestCase("Albert osti fagotin ja töräytti puhkuvan melodian.", TestName = "{m}(Finnish)")]
+    [TestCase("Franz jagt im komplett verwahrlosten Taxi quer durch Bayern.", TestName = "{m}(German)")]
+    [TestCase("איך בלש תפס גמד רוצח עז קטנה?", TestName = "{m}(Hebrew)")]
+    [TestCase("PORTEZ CE VIEUX WHISKY AU JUGE BLOND QUI FUME.", TestName = "{m}(French)")]
+    [TestCase("いろはにほへとちりぬるをわかよたれそつねならむうゐのおくやまけふこえてあさきゆめみしゑひもせす", TestName = "{m}(Japanese)")]
+    [TestCase("키스의 고유조건은 입술끼리 만나야 하고 특별한 기술은 필요치 않다.", TestName = "{m}(Korean)")]
+    public void CopyTest(string text)
+    {
+        unsafe
+        {
+            int bytes = text.Length*4;
+            int chars = text.Length*2;
+            var destByte = stackalloc byte[bytes];
+            var destChar = stackalloc char[chars];
+            var srcByte = stackalloc byte[bytes];
+            var srcChar = stackalloc char[chars];
+            int byteLength = 0;
+            int charLength = text.Length;
+            fixed(char *t = text)
+            {
+                Unicode.Utf16ToUtf8(t, text.Length, srcByte, out byteLength, bytes);
+                UnsafeUtility.MemCpy(srcChar, t, charLength*sizeof(char));
+            }
+            CopyError shouldPass, shouldFail;
+            int destLengthInt = default;
+            ushort destLengthUshort = default;
+
+            shouldPass = UTF8ArrayUnsafeUtility.Copy(destByte, out destLengthInt, bytes, srcChar, charLength);
+            shouldFail = UTF8ArrayUnsafeUtility.Copy(destByte, out destLengthInt, destLengthInt-1, srcChar, charLength);
+            Assert.AreEqual(CopyError.None, shouldPass);
+            Assert.AreEqual(CopyError.Truncation, shouldFail);
+
+            shouldPass = UTF8ArrayUnsafeUtility.Copy(destByte, out destLengthUshort, (ushort)bytes, srcChar, charLength);
+            shouldFail = UTF8ArrayUnsafeUtility.Copy(destByte, out destLengthUshort, (ushort)(destLengthUshort-1), srcChar, charLength);
+            Assert.AreEqual(CopyError.None, shouldPass);
+            Assert.AreEqual(CopyError.Truncation, shouldFail);
+
+            shouldPass = UTF8ArrayUnsafeUtility.Copy(destByte, out destLengthInt, bytes, srcByte, byteLength);
+            shouldFail = UTF8ArrayUnsafeUtility.Copy(destByte, out destLengthInt, destLengthInt-1, srcByte, byteLength);
+            Assert.AreEqual(CopyError.None, shouldPass);
+            Assert.AreEqual(CopyError.Truncation, shouldFail);
+
+            shouldPass = UTF8ArrayUnsafeUtility.Copy(destByte, out destLengthUshort, (ushort)bytes, srcByte, (ushort)byteLength);
+            shouldFail = UTF8ArrayUnsafeUtility.Copy(destByte, out destLengthUshort, (ushort)(destLengthUshort-1), srcByte, (ushort)byteLength);
+            Assert.AreEqual(CopyError.None, shouldPass);
+            Assert.AreEqual(CopyError.Truncation, shouldFail);
+
+            shouldPass = UTF8ArrayUnsafeUtility.Copy(destChar, out destLengthInt, chars, srcByte, byteLength);
+            shouldFail = UTF8ArrayUnsafeUtility.Copy(destChar, out destLengthInt, destLengthInt-1, srcByte, byteLength);
+            Assert.AreEqual(CopyError.None, shouldPass);
+            Assert.AreEqual(CopyError.Truncation, shouldFail);
+
+            shouldPass = UTF8ArrayUnsafeUtility.Copy(destChar, out destLengthUshort, (u

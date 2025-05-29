@@ -7,7 +7,8 @@
     {
         Normal = 1, 
         Splitted,
-        Shoker,
-        Canon
+        Electro,
+        Canon,
+        Ignito
     }
 }

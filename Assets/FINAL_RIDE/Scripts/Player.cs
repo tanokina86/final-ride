@@ -1,3 +1,4 @@
+using Assets.FINAL_RIDE.Scripts.Abstract_Entities;
 using Assets.Scripts;
 using Assets.Scripts.Enums;
 using System.Collections;
@@ -6,15 +7,16 @@ using UnityEngine;
 
 public class Player : Vehicle, IWeaponed
 {
-    Rigidbody2D _playerRigidbody = null;
+    private Rigidbody2D _playerRigidbody = null;
 
-    [SerializeField]
-    GameObject _projectile = null;
+    //private Weapon _weapon;
 
+    public Gun Gun => this.GetComponentInChildren<Gun>();
+
+    private WeaponHandler _weaponHandler;
     public bool HasAdditionalWeapon { get; } = true;
 
     [SerializeField]
-    private Weapon _weapon;
 
     public Weapon Weapon { get; set ; }
 
@@ -22,77 +24,124 @@ public class Player : Vehicle, IWeaponed
     {
         _playerRigidbody = GetComponent<Rigidbody2D>();
 
-        Weapon = _weapon is null ? (Weapon)ScriptableObject.CreateInstance(typeof(Weapon)) : _weapon;
-    }
+        SetWeapon();
 
+        StartCoroutine(ShootRoutine(.25f));
+    }
+    
     private void Update()
     {
-        
-    }
+        //Shoot();
 
+        //timer = Time.deltaTime * timer++;
+
+        //Debug.Log(timer);
+
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            _weaponHandler.UpgradeWeapon((AttackType)(Random.Range(1, 5)));
+        }
+    }
+    
     private void FixedUpdate()
     {
         Move();
 
         RotateGun();
-
-
-
-        if (Input.GetKey(KeyCode.Space))
-        {
-            StartCoroutine(CreateProjectile());
-        }
-        else if (Input.GetKeyUp(KeyCode.Space)) StopAllCoroutines();
-        //Shoot(1f);
-
+    }
+    
+    private void LateUpdate()
+    {
+        
     }
 
+    private void SetWeapon()
+    {
+        _weaponHandler.CreateWeaponData(); //launch it in another class Bootstrap 
+
+        _weaponHandler.CreateGun(AttackType.Normal, "MachineGun");
+
+        _weaponHandler.SetGunTo(transform);
+
+        //if (_weapon is null)
+        //{
+        //    weapon = _weapon;
+
+        //    weapon.body.transform.setparent(this.gameobject.transform, false);
+
+        //    weapon.body.transform.position = _playerrigidbody.position;
+
+        //    weapon.body.gameobject.tag = "playergun";
+
+        //    weapon.body.gameobject.setactive(true);
+
+        //}
+    }
+
+    //private void StartShoot()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Escape))
+    //    {
+    //        StopCoroutine(CreateProjectileRoutine());
+    //        Debug.Log($"COROUTINE CreateProjectile IS ENDED");
+    //    }
+
+    //    StartCoroutine(CreateProjectileRoutine());
+    //}
+
+    #region Base Actions
     public override void Move()
     {
         Vector2 axisIncrement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized * MovementSpeed * Time.fixedDeltaTime;
 
         _playerRigidbody.MovePosition(_playerRigidbody.position + axisIncrement);
-
-        _weapon.Body.position = _playerRigidbody.position;
     }
 
     public void RotateGun()
     {
         int direction = Input.GetKey(KeyCode.Mouse0) ? 1 : Input.GetKey(KeyCode.Mouse1) ? -1 : 0;
 
-        Weapon.Rotate(direction);
+        Gun.Rotate(direction);
     }
 
-    public void Shoot(float speed)
+    public void Shoot()
     {
-        
-
-
-
-        //CreateProjectile(speed);
+        if(Input.GetKey(KeyCode.Space)) Gun.Shoot();
     }
 
-    private IEnumerator CreateProjectile(float speed = 1f)
+    private IEnumerator ShootRoutine(float speed = .5f)
     {
-        yield return new WaitForSeconds(speed);
+        while(Health > 0)
+        {
+            yield return new WaitForSeconds(speed);
 
-        float directionAngle = Random.Range(-.015f, .015f);
+            Shoot();
+        }
+    }
 
-        Quaternion projectileRotation = Weapon.Body.transform.rotation;
+    #endregion
 
-        //Vector3 projectilePosition = _projectile.transform.localPosition;
+    #region Special Abilities
+    /// <summary>
+    /// Contains all of the Player abilities 
+    /// </summary>
+    /// <param name="action"></param>
+    /// <returns></returns>
+    #endregion
+    //private IEnumerator CreateProjectileRoutine(float speed = .5f)
+    //{
+    //    if (Input.GetKey(KeyCode.Space))
+    //    {
+    //        yield return new WaitForSeconds(speed);
 
-        Vector3 projectilePosition = Weapon.ShootPosition.position;
+    //        CreateProjectile(true);
+    //    }
+    //}
 
-        //Debug.Log("BEFORE: " + projectilePosition);
+    private void OnEnable()
+    {
+        //_weapon = ScriptableObject.CreateInstance(typeof(Weapon)) as Weapon;
 
-        projectileRotation.z = projectileRotation.z + directionAngle;
-
-        //Debug.Log("AFTER: " + projectilePosition);
-
-        Instantiate(_projectile, projectilePosition, projectileRotation);
-
-        _projectile.gameObject.SetActive(true);
-        
+        _weaponHandler = new WeaponHandler(name);
     }
 }

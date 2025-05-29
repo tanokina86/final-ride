@@ -4,4 +4,34 @@
 PresetManager:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_DefaultPresets: {}
+  m_DefaultPresets:
+  - first:
+      m_NativeTypeID: 114
+      m_ManagedTypePPtr: {fileID: 11500000, guid: 287c965fe41ac2e47a92bfed68fd644f, type: 3}
+      m_ManagedTypeFallback: 
+    second:
+    - m_Preset: {fileID: 2655988077585873504, guid: 9c6d7e618064792438e6c5f6f0cce48b, type: 2}
+      m_Filter: 
+      m_Disabled: 0
+  - first:
+      m_NativeTypeID: 114
+      m_ManagedTypePPtr: {fileID: 11500000, guid: 4366860bcc9633e459201c7b2dd1c43c, type: 3}
+      m_ManagedTypeFallback: 
+    second:
+    - m_Preset: {fileID: 2655988077585873504, guid: 8312dc9d78d28664ea86538d47a9c3e6, type: 2}
+      m_Filter: 
+      m_Disabled: 0
+    - m_Preset: {fileID: 0}
+      m_Filter: 
+      m_Disabled: 0
+    - m_Preset: {fileID: 0}
+      m_Filter: weapon
+      m_Disabled: 0
+  - first:
+      m_NativeTypeID: 114
+      m_ManagedTypePPtr: {fileID: 11500000, guid: 783c671ac2fdd1b46ab1e46fe1042f8a, type: 3}
+      m_ManagedTypeFallback: 
+    second:
+    - m_Preset: {fileID: 0}
+      m_Filter: 
+      m_Disabled: 0

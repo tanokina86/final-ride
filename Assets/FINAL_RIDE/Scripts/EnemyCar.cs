@@ -1,5 +1,8 @@
+using Assets.FINAL_RIDE.Scripts.Abstract_Entities;
 using Assets.Scripts;
 using Assets.Scripts.Enums;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,12 +24,16 @@ public class EnemyCar : Vehicle, IEnemy
 
     public string Discription => _description;
 
-    public IEnumerable<Dictionary<string, string>> Abilities { get; set; }
+    public IEnumerable<Dictionary<string, Action>> Abilities { get; set; }
 
-    [SerializeField]
-    private Weapon _weapon;
+    //[SerializeField]
+    //private List<Weapon> _weapon;
+    
+    private WeaponHandler _weaponHandler;
 
     public Weapon Weapon { get; set; }
+
+    public Gun Gun => this.GetComponentInChildren<Gun>();
 
     public bool HasAdditionalWeapon => false;
 
@@ -41,7 +48,7 @@ public class EnemyCar : Vehicle, IEnemy
 
         _rigidbody.position += (playerPosition - _rigidbody.position) * MovementSpeed * Time.fixedDeltaTime;
 
-        _weapon.Body.position = _rigidbody.position;
+        //if (_weapon != null) _weapon[0].Body.position = _rigidbody.position;
     }
 
     public void Describe(string text)
@@ -54,10 +61,26 @@ public class EnemyCar : Vehicle, IEnemy
         throw new System.NotImplementedException();
     }
 
+    public void Shoot()
+    {
+        Gun.Shoot();
+    }
+
+    private IEnumerator ShootRoutine(float speed = .5f)
+    {
+        while (Health > 0)
+        {
+            yield return new WaitForSeconds(speed);
+
+            Shoot();
+        }
+    }
+
     private void OnEnable()
     {
         Debug.Log($"Enemy - {Name} is now Enable. Has capability to fly: {IsFlying}");
 
+        _weaponHandler = new WeaponHandler(name);
     }
 
     private void Start()
@@ -66,19 +89,58 @@ public class EnemyCar : Vehicle, IEnemy
 
         _player = FindObjectOfType<Player>().gameObject;
 
-        Weapon = _weapon is null ? (Weapon)ScriptableObject.CreateInstance(typeof(Weapon)) : _weapon;
+        _weaponHandler.CreateGun(AttackType.Splitted, "Pump");
 
-        Weapon.Body.transform.position = _rigidbody.position;
+        _weaponHandler.SetGunTo(transform);
+
+        StartCoroutine(ShootRoutine(1f));
+
+
+        //if (_weapon is not null)
+        //{
+        //    Weapon = _weapon;
+
+        //    Weapon.Body.transform.SetParent(this.gameObject.transform, false);
+
+        //    Weapon.Body.transform.position = _rigidbody.position;
+        //}
+
+        //Weapon = _weapon is null ? (Weapon)ScriptableObject.CreateInstance(typeof(Weapon)) : _weapon;
+
+        //Weapon.Body.transform.position = _rigidbody.position;
     }
 
     private void FixedUpdate()
     {
         Move();
+
+        //Vector2 targetDirection = _player.transform.position - transform.position;
+
+        //float angle = Mathf.Atan2(targetDirection.y, targetDirection.x) * (Mathf.Rad2Deg - 90);
+
+        //Weapon.Rotate(angle);
+
+    }
+
+    private void Update()
+    {
+        Vector2 targetDirection = (_player.transform.position - transform.position).normalized;
+
+        float angle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg - 90;
+
+        Gun.Rotate(angle);
+
+        //Debug.Log(angle);
+
+        //Gun.Body.MoveRotation(angle);
     }
 
     //public delegate void MoveHandler();
 
     //public event MoveHandler OnMove;
 
-
+    private void Awake()
+    {
+        
+    }
 }

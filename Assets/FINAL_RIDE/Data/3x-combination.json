@@ -1,0 +1,162 @@
+[
+  {
+    "Key": "nrm-nrm-nrm",
+    "Value": [
+      "Normal",
+      "Normal",
+      "Normal"
+    ]
+  },
+  {
+    "Key": "nrm-nrm-spl",
+    "Value": [
+      "Normal",
+      "Normal",
+      "Splitted"
+    ]
+  },
+  {
+    "Key": "nrm-nrm-shk",
+    "Value": [
+      "Normal",
+      "Normal",
+      "Shoker"
+    ]
+  },
+  {
+    "Key": "nrm-nrm-cnn",
+    "Value": [
+      "Normal",
+      "Normal",
+      "Canon"
+    ]
+  },
+  {
+    "Key": "nrm-shk-shk",
+    "Value": [
+      "Normal",
+      "Shoker",
+      "Shoker"
+    ]
+  },
+  {
+    "Key": "spl-nrm-cnn",
+    "Value": [
+      "Splitted",
+      "Normal",
+      "Canon"
+    ]
+  },
+  {
+    "Key": "spl-spl-nrm",
+    "Value": [
+      "Splitted",
+      "Splitted",
+      "Normal"
+    ]
+  },
+  {
+    "Key": "spl-spl-spl",
+    "Value": [
+      "Splitted",
+      "Splitted",
+      "Splitted"
+    ]
+  },
+  {
+    "Key": "spl-spl-shk",
+    "Value": [
+      "Splitted",
+      "Splitted",
+      "Shoker"
+    ]
+  },
+  {
+    "Key": "spl-spl-cnn",
+    "Value": [
+      "Splitted",
+      "Splitted",
+      "Canon"
+    ]
+  },
+  {
+    "Key": "spl-shk-nrm",
+    "Value": [
+      "Splitted",
+      "Shoker",
+      "Normal"
+    ]
+  },
+  {
+    "Key": "spl-shk-shk",
+    "Value": [
+      "Splitted",
+      "Shoker",
+      "Shoker"
+    ]
+  },
+  {
+    "Key": "shk-shk-shk",
+    "Value": [
+      "Shoker",
+      "Shoker",
+      "Shoker"
+    ]
+  },
+  {
+    "Key": "cnn-shk-nrm",
+    "Value": [
+      "Canon",
+      "Shoker",
+      "Normal"
+    ]
+  },
+  {
+    "Key": "cnn-shk-spl",
+    "Value": [
+      "Canon",
+      "Shoker",
+      "Splitted"
+    ]
+  },
+  {
+    "Key": "cnn-shk-shk",
+    "Value": [
+      "Canon",
+      "Shoker",
+      "Shoker"
+    ]
+  },
+  {
+    "Key": "cnn-cnn-nrm",
+    "Value": [
+      "Canon",
+      "Canon",
+      "Normal"
+    ]
+  },
+  {
+    "Key": "cnn-cnn-spl",
+    "Value": [
+      "Canon",
+      "Canon",
+      "Splitted"
+    ]
+  },
+  {
+    "Key": "cnn-cnn-shk",
+    "Value": [
+      "Canon",
+      "Canon",
+      "Shoker"
+    ]
+  },
+  {
+    "Key": "cnn-cnn-cnn",
+    "Value": [
+      "Canon",
+      "Canon",
+      "Canon"
+    ]
+  }
+]

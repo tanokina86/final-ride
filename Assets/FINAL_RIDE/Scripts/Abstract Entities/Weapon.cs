@@ -5,10 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using Assets.Scripts.Enums;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts
 {
-    [CreateAssetMenu(fileName = "Weapon", menuName = "Entity / Weapon")]
     public class Weapon : ScriptableObject
     {
         [SerializeField]
@@ -18,74 +18,99 @@ namespace Assets.Scripts
         private float _rotationSpeed = 0f;
 
         [SerializeField]
-        private Sprite sprite;
+        private Sprite mainSprite;
+
+        [SerializeField]
+        private Projectile projectile;
 
         //[SerializeField]
         private GameObject _gun = null;
+        protected AttackType AttackType => attackType; //better to attach to projectile class
 
-        public Rigidbody2D Body => _gun.GetComponent<Rigidbody2D>();
+        private Rigidbody2D _gunRigidbody;
 
-        protected AttackType AttackType => attackType;
+        private SpriteRenderer _gunRenderer;
+
+        public Rigidbody2D Body => _gunRigidbody;
+        public SpriteRenderer SR => _gunRenderer;
+
+        public Sprite Sprite { get { return _gunRenderer?.sprite; } set { _gunRenderer.sprite = value;  } }
+
+        public Projectile Projectile => projectile;
+
 
         public float RotationSpeed => _rotationSpeed;
 
         public Transform ShootPosition { get; private set; } = null;
 
-        //public Weapon()
-        //{
-            
-        //}
-
-        public void Rotate(float angle)
+        public virtual void Rotate(float angle)
         {
-
+            _gun.transform.rotation = Quaternion.AngleAxis(angle * _rotationSpeed * Time.deltaTime, Vector3.forward);
         }
 
-        public void Rotate(Vector3 direction)
+        public virtual void Rotate(Vector3 direction)
         {
-
+            _gun.transform.rotation = Quaternion.FromToRotation(_gun.transform.rotation.eulerAngles, direction);
         }
 
-        public void Rotate(int direction)
+        public virtual void Rotate(int direction)
         {
             float zAxisValue = direction * _rotationSpeed * Time.fixedDeltaTime;
 
             _gun.transform.rotation = Quaternion.Euler(0, 0, Body.rotation += zAxisValue);
         }
 
-        public void Shoot()
+        public virtual void Shoot(bool randomPosition = true)
         {
+            Quaternion projectileRotation = Body.transform.rotation;
 
+            Vector3 projectilePosition = ShootPosition.position;
+
+            float directionAngle = UnityEngine.Random.Range(-.015f, .015f);
+
+            projectileRotation.z = randomPosition ? projectileRotation.z + directionAngle : projectileRotation.z;
+
+            Instantiate(projectile, projectilePosition, projectileRotation);
+
+            projectile?.gameObject.SetActive(true);
         }
 
-        public void Shoot(GameObject target)
+        public virtual void Shoot(GameObject target)
         {
-
+            //_gun.transform.rotation.SetFromToRotation(_gun.transform.rotation.eulerAngles, target.transform.rotation.eulerAngles);
         }
 
         private void OnEnable()
         {
-            _gun = new GameObject();
-            _gun.name = string.Concat(attackType.ToString(), "Gun");
-            _gun.tag = "Gun";
-            _gun.AddComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
-            _gun.AddComponent<Transform>();
 
+            Debug.Log($"GUN {_gun.name} is created");
+        }
 
-            SpriteRenderer spriteRenderer = _gun.AddComponent<SpriteRenderer>();
-            spriteRenderer.sprite = sprite;
-            spriteRenderer.sortingOrder = 3;
+        private void SetRequireComponents()
+        {
+            _gunRigidbody = _gun.AddComponent<Rigidbody2D>();
+            _gunRenderer = _gun.AddComponent<SpriteRenderer>();
+        }
 
+        private void OnDisable()
+        {
+            if (!SceneManager.GetActiveScene().isLoaded) return;
 
-            ShootPosition = _gun.gameObject.GetComponent<Transform>();
-            ShootPosition.SetParent(_gun.transform);
-            ShootPosition.position = new Vector3(ShootPosition.position.x, ShootPosition.position.y - 0.05f, ShootPosition.position.z);
+            Debug.Log($"{this.name} disabled");
+        }
 
-            GameObject child = new GameObject("ShootPosition");
-            child.tag = "ShootPosition";
-            child.transform.SetParent(_gun.transform, false);
+        private void OnDestroy()
+        {
+            Debug.Log($"{this.name} destroyed");
+        }
 
-            ShootPosition.position = child.transform.position += new Vector3(0, 0.5f, 0);
+        private void Awake()
+        {
+            SetRequireComponents();
+            if (!Application.isPlaying && SceneManager.GetActiveScene().isLoaded)
+            {
+                Debug.Log($"{this.name} awaked");
+            }
         }
     }
 }

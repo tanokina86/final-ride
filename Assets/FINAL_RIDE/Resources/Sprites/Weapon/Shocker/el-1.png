@@ -1,0 +1,137 @@
+dToChangeCursor);
+        Assert.AreEqual(0, textBox.selectIndex, kFailedToChangeSelect);
+    }
+
+    [Test]
+    public void TextEditorWithUTF16_LeftCursorOnBackspaceAndLeftSurrogate_RemovesBothSurrogates()
+    {
+        var textBox = new TextEditor()
+        {
+            text = "🗘MikeDeRoy",
+            cursorIndex = 1,
+            selectIndex = 1,
+        };
+
+        textBox.Backspace();
+
+        Assert.AreEqual("MikeDeRoy", textBox.text, kFailedToRemoveCharacterMessage);
+        Assert.AreEqual(0, textBox.cursorIndex, kFailedToChangeCursor);
+        Assert.AreEqual(0, textBox.selectIndex, kFailedToChangeSelect);
+    }
+
+    [Test]
+    public void TextEditorWithUTF16_LeftCursorOnDeleteAndLeftSurrogate_RemovesBothSurrogates()
+    {
+        var textBox = new TextEditor()
+        {
+            text = "🗘MikeDeRoy",
+            cursorIndex = 0,
+            selectIndex = 0,
+        };
+
+        textBox.Delete();
+
+        Assert.AreEqual("MikeDeRoy", textBox.text, kFailedToRemoveCharacterMessage);
+        Assert.AreEqual(0, textBox.cursorIndex, kFailedToChangeCursor);
+        Assert.AreEqual(0, textBox.selectIndex, kFailedToChangeSelect);
+    }
+
+    [Test]
+    public void TextEditorWithUTF16_LeftCursorOnBackspaceAndRightSurrogate_RemovesBothSurrogates()
+    {
+        var textBox = new TextEditor()
+        {
+            text = "🗘MikeDeRoy",
+            cursorIndex = 2,
+            selectIndex = 2,
+        };
+
+        textBox.Backspace();
+
+        Assert.AreEqual("MikeDeRoy", textBox.text, kFailedToRemoveCharacterMessage);
+        Assert.AreEqual(0, textBox.cursorIndex, kFailedToChangeCursor);
+        Assert.AreEqual(0, textBox.selectIndex, kFailedToChangeSelect);
+    }
+
+    [Test]
+    public void TextEditorWithUTF16_RightCursorOnBackspace_RemovesCharacters()
+    {
+        var textBox = new TextEditor()
+        {
+            text = "MikeDeRoy",
+            cursorIndex = 9,
+            selectIndex = 9,
+        };
+
+        textBox.Backspace();
+
+        Assert.AreEqual("MikeDeRo", textBox.text, kFailedToRemoveCharacterMessage);
+        Assert.AreEqual(8, textBox.cursorIndex, kFailedToChangeCursor);
+        Assert.AreEqual(8, textBox.selectIndex, kFailedToChangeSelect);
+    }
+
+    [Test]
+    public void TextEditorWithUTF16_RightCursorOnDelete_DoesNotRemoveCharacter()
+    {
+        var textBox = new TextEditor()
+        {
+            text = "MikeDeRoy",
+            cursorIndex = 9,
+            selectIndex = 9,
+        };
+
+        textBox.Delete();
+
+        Assert.AreEqual("MikeDeRoy", textBox.text, kFailedToRemoveCharacterMessage);
+        Assert.AreEqual(9, textBox.cursorIndex, kFailedToChangeCursor);
+        Assert.AreEqual(9, textBox.selectIndex, kFailedToChangeSelect);
+    }
+
+    [Test]
+    public void TextEditorWithUTF16_RightCursorOnBackspaceAndLeftSurrogate_RemovesBothSurrogates()
+    {
+        var textBox = new TextEditor()
+        {
+            text = "MikeDeRoy🗘",
+            cursorIndex = 10,
+            selectIndex = 10,
+        };
+
+        textBox.Backspace();
+
+        Assert.AreEqual("MikeDeRoy", textBox.text, kFailedToRemoveCharacterMessage);
+        Assert.AreEqual(9, textBox.cursorIndex, kFailedToChangeCursor);
+        Assert.AreEqual(9, textBox.selectIndex, kFailedToChangeSelect);
+    }
+
+    [Test]
+    public void TextEditorWithUTF16_RightCursorOnDeleteAndLeftSurrogate_RemovesBothSurrogates()
+    {
+        var textBox = new TextEditor()
+        {
+            text = "MikeDeRoy🗘",
+            cursorIndex = 9,
+            selectIndex = 9,
+        };
+
+        textBox.Delete();
+
+        Assert.AreEqual("MikeDeRoy", textBox.text, kFailedToRemoveCharacterMessage);
+        Assert.AreEqual(9, textBox.cursorIndex, kFailedToChangeCursor);
+        Assert.AreEqual(9, textBox.selectIndex, kFailedToChangeSelect);
+    }
+
+    [Test]
+    public void TextEditorWithUTF16_RightCursorOnBackspaceAndRightSurrogate_RemovesBothSurrogates()
+    {
+        var textBox = new TextEditor()
+        {
+            text = "MikeDeRoy🗘",
+            cursorIndex = 11,
+            selectIndex = 11,
+        };
+
+        textBox.Backspace();
+
+        Assert.AreEqual("MikeDeRoy", textBox.text, kFailedToRemoveCharacterMessage);
+        Assert.AreEqual(9, textBox.cursorIndex,
