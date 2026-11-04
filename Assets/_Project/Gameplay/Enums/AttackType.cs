@@ -8,7 +8,7 @@
         Normal = 1, 
         Splitted,
         Electro,
-        Canon,
+        Cannon,
         Ignito
     }
 }

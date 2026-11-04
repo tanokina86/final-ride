@@ -93,6 +93,11 @@ namespace FinalRide.Gameplay.Vehicles
                 _weaponHandler.UpgradeWeapon(randomType);
                 Debug.Log($"[Cheat] Оружие игрока улучшено до: {randomType}");
             }
+
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                _weaponHandler.ApplyWeaponSet();
+            }
         }
 
         private void FixedUpdate()
@@ -219,6 +224,11 @@ namespace FinalRide.Gameplay.Vehicles
                 yield return new WaitForSeconds(speed);
                 Shoot();
             }
+        }
+
+        internal WeaponHandler GetWeaponHandler()
+        {
+            return _weaponHandler;
         }
 
         #endregion

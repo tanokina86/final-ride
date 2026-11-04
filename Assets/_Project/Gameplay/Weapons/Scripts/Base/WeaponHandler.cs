@@ -18,7 +18,7 @@ namespace FinalRide.Gameplay.Weapons.Base
         private readonly Dictionary<AttackType, string> _tokenRegistry = new Dictionary<AttackType, string>
         {
             { AttackType.Normal, "nr" },
-            { AttackType.Canon, "cn" },
+            { AttackType.Cannon, "cn" },
             { AttackType.Splitted, "sp" },
             { AttackType.Electro, "el" },
             { AttackType.Ignito, "ig" }
@@ -65,13 +65,13 @@ namespace FinalRide.Gameplay.Weapons.Base
             if (currentStatusIndex >= WeaponData.MAX_UPGRADE_NUMBER)
             {
                 _upgradeStatus[lastSlotIndex] = shortName;
-                Debug.Log($"[Inventory] Overwriting last slot. Current stack ID: [{string.Join("-", _upgradeStatus)}]");
+                Debug.Log($"[Inventory] Overwriting last slot. Current stack ID: [{GetFormattedStackId()}]");
             }
             else
             {
                 _upgradeStatus[currentStatusIndex] = shortName;
                 currentStatusIndex++;
-                Debug.Log($"[Inventory] Appending weapon. Current stack ID: [{string.Join("-", _upgradeStatus)}]");
+                Debug.Log($"[Inventory] Appending weapon. Current stack ID: [{GetFormattedStackId()}]");
             }
 
             ApplyWeaponFromResources(shortName);
@@ -132,10 +132,30 @@ namespace FinalRide.Gameplay.Weapons.Base
             _weaponObject.transform.SetPositionAndRotation(parent.position, parent.rotation);
         }
 
-        private static string GetShortName(AttackType attackType)
+        //private static string GetShortName(AttackType attackType)
+        //{
+        //    return WeaponData.GetShortName(Enum.GetName(typeof(AttackType), attackType));
+        //}
+
+        /// <summary>
+        /// Compiles a dynamic text string layout of the active configuration stack without empty terminal rows.
+        /// </summary>
+        /// <returns>A formatted string token block joined by dashes.</returns>
+        private string GetFormattedStackId()
         {
-            return WeaponData.GetShortName(Enum.GetName(typeof(AttackType), attackType));
+            List<string> activeTokens = new List<string>();
+
+            for (int i = 0; i < _upgradeStatus.Length; i++)
+            {
+                if (!string.IsNullOrEmpty(_upgradeStatus[i]))
+                {
+                    activeTokens.Add(_upgradeStatus[i]);
+                }
+            }
+
+            return string.Join("-", activeTokens);
         }
+
 
         public void CreateWeaponData()
         {
@@ -147,9 +167,14 @@ namespace FinalRide.Gameplay.Weapons.Base
         /// </summary>
         public void ApplyWeaponSet()
         {
-            _isBuildLocked = true;
-            Debug.Log($"[Inventory] Weapon build locked successfully! Current configuration is sealed: {string.Join(";", _upgradeStatus)}");
-        }
+            if (currentStatusIndex < WeaponData.MAX_UPGRADE_NUMBER)
+            {
+                Debug.LogWarning($"[Inventory] Cannot lock weapon build! Slots are not fully populated yet: {currentStatusIndex}/{WeaponData.MAX_UPGRADE_NUMBER}");
+                return;
+            }
 
+            _isBuildLocked = true;
+            Debug.Log($"[Inventory] Weapon build locked successfully! Current configuration is sealed: [{string.Join("-", _upgradeStatus)}]");
+        }
     }
 }
