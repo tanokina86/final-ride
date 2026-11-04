@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
-using Assets.Scripts.Enums; // Убедитесь, что путь к вашим энумам верный
+using Assets.Scripts.Enums;
+using FinalRide.Gameplay.Weapons.Projectiles;
 
 namespace FinalRide.Gameplay.Weapons.Base
 {

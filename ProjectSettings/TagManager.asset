@@ -6,9 +6,9 @@ TagManager:
   tags:
   - Gun
   - Enemy
-  - SP
   - PlayerGun
   - Road
+  - SP
   layers:
   - Default
   - TransparentFX
@@ -16,11 +16,11 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Road
   - Player
   - Enemies
-  - Projectiles
-  - 
+  - PlayerProjectiles
+  - EnemyProjectiles
   - Obstacles
   - 
   - 

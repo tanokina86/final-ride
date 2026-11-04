@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5782120880695442865}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Abyss_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 4543117202880339046}
   - component: {fileID: 4325651199727452780}
   - component: {fileID: 5838690969057772010}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 7685364926222519520}
   - component: {fileID: 2749769844985811172}
   - component: {fileID: 4409808891806636248}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -338,7 +338,7 @@ GameObject:
   - component: {fileID: 8273079589199389993}
   - component: {fileID: 7384447098997089321}
   - component: {fileID: 6972296703545251670}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Exit_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -428,7 +428,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2986895979524043647}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Abyss_Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -461,7 +461,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6829936125780572764}
   - component: {fileID: 6449683986192963766}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tile_Fork
   m_TagString: Road
   m_Icon: {fileID: 0}
@@ -553,7 +553,7 @@ GameObject:
   - component: {fileID: 1946406010903096823}
   - component: {fileID: 3844516705648661537}
   - component: {fileID: 2202786708997138215}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -698,7 +698,7 @@ GameObject:
   - component: {fileID: 5094085060325320727}
   - component: {fileID: 8314261686817433080}
   - component: {fileID: 4902067042242178183}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Triangle_Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -829,7 +829,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2253317456611735986}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Abyss_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -863,7 +863,7 @@ GameObject:
   - component: {fileID: 8537514650892607587}
   - component: {fileID: 5904094412158938828}
   - component: {fileID: 5827082646330793877}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Exit_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}

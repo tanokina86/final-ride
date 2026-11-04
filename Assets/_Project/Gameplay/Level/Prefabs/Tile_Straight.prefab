@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2003698507929307445}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Abbys_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 27971628092772163}
   - component: {fileID: 6838090746646659656}
   - component: {fileID: 8951746194359229743}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 8855152580653439664}
   - component: {fileID: 4887229522778100260}
   - component: {fileID: 7972950227422211256}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -335,7 +335,7 @@ GameObject:
   - component: {fileID: 6951569893618022732}
   - component: {fileID: 3530540828170522259}
   - component: {fileID: -7385270516980614545}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tile_Straight
   m_TagString: Road
   m_Icon: {fileID: 0}
@@ -465,7 +465,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8487163662220163815}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Abbys_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}

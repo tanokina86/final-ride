@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3484703822897846952}
   - component: {fileID: 8161219096926630467}
   - component: {fileID: 8313704916663820883}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 578827376124920794}
   - component: {fileID: 4736987639598930921}
   - component: {fileID: 8419046920115347030}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Border_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -234,7 +234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5348017604925651774}
   - component: {fileID: 1227331214764231520}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -319,7 +319,7 @@ GameObject:
   - component: {fileID: 8538652839126121510}
   - component: {fileID: 932822412151120370}
   - component: {fileID: 6421758218033325891}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Border_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -422,7 +422,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -449,7 +449,7 @@ GameObject:
   - component: {fileID: 228971007345084436}
   - component: {fileID: 3300963772868603142}
   - component: {fileID: 354338806467216527}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -542,7 +542,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8700293037243465938}
   - component: {fileID: 4020954245629050885}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -625,7 +625,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5229950985499823586}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Abbys_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -659,7 +659,7 @@ GameObject:
   - component: {fileID: 6951569893618022732}
   - component: {fileID: 3530540828170522259}
   - component: {fileID: 4693763178962882581}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tile_Choke
   m_TagString: Road
   m_Icon: {fileID: 0}
@@ -791,7 +791,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5464069953784710965}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Abbys_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -14,6 +14,7 @@ namespace FinalRide.Gameplay.Weapons.Base
         public float HeatPerShot { get; set; } = 5f;
         public float CoolingRate { get; set; } = 20f;
         public float OverheatCooldownDuration { get; set; } = 2.5f;
+        public float MagnetismRadius { get; set; } = 0f;
 
         public bool IsBypassingArmor { get; private set; } = false;
         public bool HasMicroStun { get; private set; } = false;
@@ -23,10 +24,10 @@ namespace FinalRide.Gameplay.Weapons.Base
         /// <summary>
         /// Safely applies shocker attributes using logical OR and updates status flags.
         /// </summary>
-        public void ApplyShockerAttributes()
+        public void ApplyShockerAttributes(float magnetismRadius)
         {
-            IsBypassingArmor |= true;
             HasMicroStun |= true;
+            MagnetismRadius = magnetismRadius;
         }
 
         /// <summary>

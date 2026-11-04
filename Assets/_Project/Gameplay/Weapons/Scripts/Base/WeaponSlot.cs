@@ -1,8 +1,7 @@
 using Assets.Scripts.Enums;
-using System;
+using FinalRide.Gameplay.Weapons.Projectiles;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.SocialPlatforms.Impl;
 
 namespace FinalRide.Gameplay.Weapons.Base
 {
@@ -172,6 +171,15 @@ namespace FinalRide.Gameplay.Weapons.Base
             if (bulletInstance != null)
             {
                 bulletInstance.transform.localScale *= stats.ProjectileScale;
+
+                // INJECTION: Transfer dynamic combo stats directly into the spawned physics handler
+                bulletInstance.InitializePayload(
+                    stats.Damage,
+                    stats.MagnetismRadius,
+                    stats.HasMicroStun,
+                    stats.PiercedArmorTypes
+                );
+
                 bulletInstance.gameObject.SetActive(true);
             }
         }

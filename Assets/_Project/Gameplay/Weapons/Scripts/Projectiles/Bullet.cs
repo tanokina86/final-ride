@@ -1,5 +1,5 @@
 ﻿using Assets.Scripts.Enums;
-using UnityEngine;
+using FinalRide.Gameplay.Weapons.Projectiles;
 
 namespace FinalRide.Gameplay.Weapons
 {
