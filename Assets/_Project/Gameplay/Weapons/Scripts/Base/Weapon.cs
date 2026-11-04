@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Assets.Scripts.Enums; // Убедитесь, что путь к вашим энумам верный
 
-namespace FinalRide.Gameplay.Weapons
+namespace FinalRide.Gameplay.Weapons.Base
 {
     [CreateAssetMenu(fileName = "NewWeaponData", menuName = "Final Ride/Weapon Data")]
     public class Weapon : ScriptableObject

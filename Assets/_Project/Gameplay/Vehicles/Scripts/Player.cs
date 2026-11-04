@@ -1,7 +1,7 @@
 using Assets.Scripts.Enums;
 using FinalRide.Gameplay.Abilities;
 using FinalRide.Gameplay.Interfaces;
-using FinalRide.Gameplay.Weapons;
+using FinalRide.Gameplay.Weapons.Base;
 using System;
 using System.Collections;
 using System.Collections.Generic;

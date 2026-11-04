@@ -1,11 +1,10 @@
 ﻿using Assets.Scripts;
 using Assets.Scripts.Enums;
-using FinalRide.Gameplay.Weapons;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace FinalRide.Gameplay.Weapons
+namespace FinalRide.Gameplay.Weapons.Base
 {
     public class WeaponHandler
     {
@@ -14,6 +13,17 @@ namespace FinalRide.Gameplay.Weapons
 
         private int currentStatusIndex = 0;
         private readonly string[] _upgradeStatus = new string[WeaponData.MAX_UPGRADE_NUMBER];
+
+        private bool _isBuildLocked = false;
+        private readonly Dictionary<AttackType, string> _tokenRegistry = new Dictionary<AttackType, string>
+        {
+            { AttackType.Normal, "nr" },
+            { AttackType.Canon, "cn" },
+            { AttackType.Splitted, "sp" },
+            { AttackType.Electro, "el" },
+            { AttackType.Ignito, "ig" }
+        };
+
 
         public string[] UpgradeStatus => _upgradeStatus;
 
@@ -29,43 +39,53 @@ namespace FinalRide.Gameplay.Weapons
             // Добавляем наш универсальный слот, который теперь рулит спрайтами и физикой
             _weaponSlot = _weaponObject.AddComponent<WeaponSlot>();
 
+            // CONNECTING THE DOTS: Передаем ссылку на себя для работы WeaponStatsBuilder внутри слота
+            _weaponSlot.InitializeSlot(this);
+
             if (parent != null)
             {
                 SetGunTo(parent);
             }
         }
 
+
+        /// <summary>
+        /// Registers weapon upgrades into the sequential configuration stack, handling custom terminal slot rotation algorithms.
+        /// </summary>
+        /// <param name="attackType">The explicit target attack type profile token retrieved from the map track pickup.</param>
         public void UpgradeWeapon(AttackType attackType)
         {
-            string shortName = GetShortName(attackType);
+            if (_isBuildLocked || !_tokenRegistry.TryGetValue(attackType, out string shortName))
+            {
+                return;
+            }
 
-            // Реализуем честный сдвиг очереди (FIFO) при достижении максимума
+            int lastSlotIndex = WeaponData.MAX_UPGRADE_NUMBER - 1;
+
             if (currentStatusIndex >= WeaponData.MAX_UPGRADE_NUMBER)
             {
-                for (int i = 0; i < _upgradeStatus.Length - 1; i++)
-                {
-                    _upgradeStatus[i] = _upgradeStatus[i + 1];
-                }
-                _upgradeStatus[_upgradeStatus.Length - 1] = shortName;
-
-                Debug.Log($"[Inventory] Сдвиг! Текущий сет: {string.Join(";", _upgradeStatus)}");
-                Debug.Log("Car status changed");
+                // Execute precise terminal node rotation by overwriting exclusively the last upgrade slot index
+                _upgradeStatus[lastSlotIndex] = shortName;
+                Debug.Log($"[Inventory] Slot Rotation active. Overwriting last slot index to: {shortName}. Current layout: {string.Join(";", _upgradeStatus)}");
             }
             else
             {
+                // Linearly populate empty configuration rows until structural capacity limits are reached
                 _upgradeStatus[currentStatusIndex] = shortName;
                 currentStatusIndex++;
+                Debug.Log($"[Inventory] Appending weapon setup row. Index {currentStatusIndex - 1} set to: {shortName}");
             }
 
-            // Накатываем новые данные из ScriptableObject на наш физический слот ствола
             ApplyWeaponFromResources(shortName);
-
             OnWeaponUpgraded?.Invoke(attackType);
         }
 
         public void CreateGun(AttackType attackType, string gunName = "")
         {
-            string shortName = GetShortName(attackType);
+            if (!_tokenRegistry.TryGetValue(attackType, out string shortName))
+            {
+                shortName = "nr";
+            }
 
             // Безопасно подтягиваем или добавляем WeaponSlot
             if (_weaponSlot == null)
@@ -123,5 +143,15 @@ namespace FinalRide.Gameplay.Weapons
         {
             WeaponData.CreateTotalShortNames();
         }
+
+        /// <summary>
+        /// Seals the current weapon modification array to protect the active combo build from unintended road pickups.
+        /// </summary>
+        public void ApplyWeaponSet()
+        {
+            _isBuildLocked = true;
+            Debug.Log($"[Inventory] Weapon build locked successfully! Current configuration is sealed: {string.Join(";", _upgradeStatus)}");
+        }
+
     }
 }
