@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - SP
   - PlayerGun
+  - Road
   layers:
   - Default
   - TransparentFX
@@ -16,11 +17,11 @@ TagManager:
   - Water
   - UI
   - 
+  - Player
+  - Enemies
+  - Projectiles
   - 
-  - 
-  - 
-  - 
-  - 
+  - Obstacles
   - 
   - 
   - 
