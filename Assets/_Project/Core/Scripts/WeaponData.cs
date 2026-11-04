@@ -10,7 +10,7 @@ namespace Assets.Scripts
 {
     public static class WeaponData
     {
-        public const int MAX_UPGRADE_NUMBER = 3;
+        public const int MAX_UPGRADE_NUMBER = 4;
 
         private static Dictionary<string, List<string>> weaponCombinations = new Dictionary<string, List<string>>();
 

@@ -64,16 +64,14 @@ namespace FinalRide.Gameplay.Weapons.Base
 
             if (currentStatusIndex >= WeaponData.MAX_UPGRADE_NUMBER)
             {
-                // Execute precise terminal node rotation by overwriting exclusively the last upgrade slot index
                 _upgradeStatus[lastSlotIndex] = shortName;
-                Debug.Log($"[Inventory] Slot Rotation active. Overwriting last slot index to: {shortName}. Current layout: {string.Join(";", _upgradeStatus)}");
+                Debug.Log($"[Inventory] Overwriting last slot. Current stack ID: [{string.Join("-", _upgradeStatus)}]");
             }
             else
             {
-                // Linearly populate empty configuration rows until structural capacity limits are reached
                 _upgradeStatus[currentStatusIndex] = shortName;
                 currentStatusIndex++;
-                Debug.Log($"[Inventory] Appending weapon setup row. Index {currentStatusIndex - 1} set to: {shortName}");
+                Debug.Log($"[Inventory] Appending weapon. Current stack ID: [{string.Join("-", _upgradeStatus)}]");
             }
 
             ApplyWeaponFromResources(shortName);
